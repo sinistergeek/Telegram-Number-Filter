@@ -14,8 +14,8 @@ O.    .O O   O   o O      O   o   O      O            O.    oO  O       O     o 
 
 
 from telegram.client import Telegram
-
-
+import time
+import random
 
 print("First register Here "+"https://my.telegram.org/apps ")
 
@@ -27,19 +27,22 @@ ask_for_user_zip=input('Input zip Code of Your Country: ')
 
 ask_the_number=input('Input Your Phone Number: ')
 
+
 tg = Telegram(
     api_id=ask_for_api_id,  
     api_hash=ask_for_api_hash,   
     phone=('+' + ask_for_user_zip + ask_the_number),
-    database_encryption_key='changeme1234'
+    database_encryption_key='hello123' 
 )
 
 tg.login()
 
 
-f = open('contact.txt', 'r') # Change the file  name
+f = open('contact.txt', 'r')
 cont = []
+
 for line in f.readlines():
+    
     
     #stripped_line = line.strip()
 
@@ -64,10 +67,13 @@ for x in cont:
     user_ids = response.update['user_ids']
     if user_ids[0] == 0:
         
-        print('This contact '+ x +'is NOT using Telegram.')
+        print("[+]" + ' This contact '+ x +'is NOT using Telegram.')
+        time.sleep(random.randint(0,16))
      
     else:
        
-        print(f'¡This contact id ({user_ids[0]}) uses Telegram!.' + 'Here, the contact number ' + x)
+        print("[+]" + f' ¡This contact id ({user_ids[0]}) uses Telegram!.' + 'Here, the contact number ' + x)
+        time.sleep(random.randint(0,16))
+
 
        
