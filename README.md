@@ -1,6 +1,6 @@
 # Telegram-Number-Filter
 # Requirement
-- You need less than Python 3.9
+- You need Python 3.9 or above
 - python3 -m install python-telegram
 
 # How to Use
